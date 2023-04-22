@@ -22,7 +22,7 @@ public class CardService {
     @Autowired
     CardRepository cardRepository;
 
-    private static Card[] currentHand;
+    private Card[] currentHand;
 
     private List<Card.Suit> suitOrder = new ArrayList<Card.Suit>();
     private List<Card.Value> valueOrder = new ArrayList<Card.Value>();
