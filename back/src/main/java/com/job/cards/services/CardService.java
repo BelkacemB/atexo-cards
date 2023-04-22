@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.Comparator;
 import java.util.Collections;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +16,8 @@ import com.job.cards.repo.CardRepository;
 
 @Service
 public class CardService {
+
+    private static final Logger log = LoggerFactory.getLogger(CardService.class);
 
     @Autowired
     CardRepository cardRepository;
@@ -24,8 +29,13 @@ public class CardService {
 
     public void shuffle() {
         currentHand = getRandomCards();
+        log.info("Shuffled cards: " + Arrays.toString(currentHand));
+
         createRandomSuitOrder();
+        log.info("Suit order: " + suitOrder);
+
         createRandomValueOrder();
+        log.info("Value order: " + valueOrder);
     }
 
     public Card[] getAllCards() {
