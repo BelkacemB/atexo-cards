@@ -1,3 +1,5 @@
+![Screenshot](screencap.png)
+
 # How to run
 
 ```bash
