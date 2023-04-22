@@ -26,6 +26,13 @@ class CardsApplicationTests {
 	}
 
 	@Test
+	void testNoDuplicateCard() {
+		Card[] cards = cardRepository.getCards();
+		Card[] set = Arrays.stream(cards).distinct().toArray(Card[]::new);
+		assert(cards.length == set.length);
+	}
+
+	@Test
 	void testHandSize() {
 		cardService.shuffle();
 		Card[] cards = cardService.getCurrentHand();
