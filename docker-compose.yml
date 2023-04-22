@@ -1,0 +1,17 @@
+# Runs cards-back on the backend (port 8080) and the cards-front (port 3000) concurrently
+version: '3.9'
+services:
+  cards-back:
+    platform: linux/arm64/v8
+    build:
+      context: ./back
+      dockerfile: Dockerfile
+    ports:
+      - 8080:8080
+  cards-front:
+    platform: linux/arm64/v8
+    build: ./front
+    ports:
+      - 3000:3000
+    depends_on:
+      - cards-back
