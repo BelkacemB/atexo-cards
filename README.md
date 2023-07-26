@@ -1,4 +1,6 @@
-# How to run locally
+(Technical interview task)
+
+## How to run locally
 
 ```bash
 docker-compose build && docker-compose up
